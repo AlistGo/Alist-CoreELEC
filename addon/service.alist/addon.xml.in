@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<!--
+  SPDX-License-Identifier: GPL-2.0-only
+  Copyright (C) 2016-present Team LibreELEC (https://libreelec.tv)
+  Copyright (C) 2026-present AlistGo (https://github.com/AlistGo)
+
+  Derived from the CoreELEC build-system template config/addon/xbmc.service.xml.
+  Placeholders are rendered by scripts/build-addon.sh.
+-->
+<addon id="service.alist"
+       name="AList"
+       version="@ADDON_VERSION@"
+       provider-name="AlistGo">
+  <requires>
+    <import addon="xbmc.python" version="3.0.0"/>
+  </requires>
+  <extension point="xbmc.service" library="default.py">
+    <provides></provides>
+  </extension>
+  <extension point="xbmc.addon.metadata">
+    <summary lang="en_GB">AList: file list and WebDAV server for multiple storages</summary>
+    <summary lang="zh_CN">AList：支持多种存储的文件列表 / WebDAV 服务</summary>
+    <description lang="en_GB">AList (@ALIST_VERSION@) runs as a background service and serves a web UI on port 5244 by default. Mount local folders, cloud drives and WebDAV servers, then browse or stream them from Kodi or any other client. Configuration lives in the add-on data folder and survives upgrades.</description>
+    <description lang="zh_CN">AList（@ALIST_VERSION@）作为后台服务运行，默认在 5244 端口提供网页界面。可挂载本地目录、网盘与 WebDAV 服务器，供 Kodi 或其他客户端浏览与播放。配置保存在插件数据目录中，升级不丢失。</description>
+    <disclaimer></disclaimer>
+    <platform>all</platform>
+    <license>GPL-2.0-only (add-on); AGPL-3.0 (AList)</license>
+    <source>https://github.com/AlistGo/Alist-CoreELEC</source>
+    <website>https://alistgo.com</website>
+    <news>
+@PKG_ADDON_NEWS@
+    </news>
+    <assets>
+      <icon>resources/icon.png</icon>
+    </assets>
+  </extension>
+</addon>

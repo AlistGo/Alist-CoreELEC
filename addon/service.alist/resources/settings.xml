@@ -1,0 +1,58 @@
+<?xml version="1.0" ?>
+<!--
+  SPDX-License-Identifier: GPL-2.0-only
+  Copyright (C) 2023-present Team LibreELEC (https://libreelec.tv)
+  Copyright (C) 2026-present AlistGo (https://github.com/AlistGo)
+
+  Derived from the LibreELEC/CoreELEC service.filebrowser add-on.
+  Setting ids are exported as shell variables by oe_setup_addon.
+-->
+<settings version="1">
+  <section id="service.alist">
+    <category id="settings" label="30000" help="">
+      <group id="1">
+        <setting id="ALIST_HTTP_PORT" type="string" label="30001" help="30011">
+          <level>0</level>
+          <default>5244</default>
+          <control type="edit" format="string">
+            <heading>30001</heading>
+          </control>
+        </setting>
+        <setting id="ALIST_ADMIN_PASSWORD" type="string" label="30002" help="30012">
+          <level>0</level>
+          <default>coreelec</default>
+          <control type="edit" format="string">
+            <heading>30002</heading>
+            <hidden>true</hidden>
+          </control>
+        </setting>
+      </group>
+      <group id="2" label="30020">
+        <setting id="info_url" type="action" label="30021" help="">
+          <level>0</level>
+          <data/>
+          <constraints>
+            <allowempty>true</allowempty>
+          </constraints>
+          <control type="button" format="action"/>
+        </setting>
+        <setting id="info_user" type="action" label="30022" help="">
+          <level>0</level>
+          <data/>
+          <constraints>
+            <allowempty>true</allowempty>
+          </constraints>
+          <control type="button" format="action"/>
+        </setting>
+        <setting id="info_data" type="action" label="30023" help="">
+          <level>0</level>
+          <data/>
+          <constraints>
+            <allowempty>true</allowempty>
+          </constraints>
+          <control type="button" format="action"/>
+        </setting>
+      </group>
+    </category>
+  </section>
+</settings>

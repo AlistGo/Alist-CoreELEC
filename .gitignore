@@ -1,0 +1,6 @@
+dist/
+site/
+.DS_Store
+*.tar.gz
+*.zip
+__pycache__/

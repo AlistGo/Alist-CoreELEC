@@ -1,0 +1,42 @@
+#!/bin/sh
+
+# SPDX-License-Identifier: GPL-2.0-only
+# Copyright (C) 2023-present Team LibreELEC (https://libreelec.tv)
+# Copyright (C) 2026-present AlistGo (https://github.com/AlistGo)
+#
+# Derived from the LibreELEC/CoreELEC service.filebrowser add-on
+# (packages/addons/service/filebrowser/source/bin/filebrowser.start).
+
+. /etc/profile
+
+oe_setup_addon service.alist
+
+ALIST="${ADDON_DIR}/bin/alist"
+DATA_DIR="${ADDON_HOME}/data"
+PASSWORD_STAMP="${ADDON_HOME}/.admin-password.md5"
+
+mkdir -p "${DATA_DIR}"
+
+if ! "${ALIST}" version >/dev/null 2>&1; then
+  echo "service.alist: ${ALIST} cannot run on this device." >&2
+  echo "service.alist: install the add-on build that matches your CoreELEC architecture (see /etc/os-release)." >&2
+  exit 1
+fi
+
+# Apply the admin password from the add-on settings whenever it changes.
+# On a fresh data folder this call also initialises the database.
+if [ -n "${ALIST_ADMIN_PASSWORD}" ]; then
+  stamp="$(printf '%s' "${ALIST_ADMIN_PASSWORD}" | md5sum | cut -d ' ' -f 1)"
+  if [ ! -f "${PASSWORD_STAMP}" ] || [ "$(cat "${PASSWORD_STAMP}")" != "${stamp}" ]; then
+    if "${ALIST}" admin set "${ALIST_ADMIN_PASSWORD}" --data "${DATA_DIR}" >/dev/null 2>&1; then
+      printf '%s\n' "${stamp}" > "${PASSWORD_STAMP}"
+    else
+      echo "service.alist: failed to apply admin password, keeping the previous one." >&2
+    fi
+  fi
+fi
+
+export ALIST_HTTP_PORT="${ALIST_HTTP_PORT:-5244}"
+export ALIST_ADDR="0.0.0.0"
+
+exec "${ALIST}" server --data "${DATA_DIR}"

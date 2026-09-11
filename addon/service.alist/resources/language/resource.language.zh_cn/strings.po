@@ -1,0 +1,53 @@
+# Kodi Media Center language file
+# Addon Name: AList
+# Addon id: service.alist
+# Addon Provider: AlistGo
+msgid ""
+msgstr ""
+"Project-Id-Version: service.alist\n"
+"Report-Msgid-Bugs-To: https://github.com/AlistGo/Alist-CoreELEC/issues\n"
+"POT-Creation-Date: 2026-09-11 00:00+0000\n"
+"PO-Revision-Date: 2026-09-11 00:00+0000\n"
+"Last-Translator: AlistGo\n"
+"Language-Team: AlistGo\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: zh_CN\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+
+msgctxt "#30000"
+msgid "Settings"
+msgstr "设置"
+
+msgctxt "#30001"
+msgid "Web port"
+msgstr "网页端口"
+
+msgctxt "#30002"
+msgid "Admin password"
+msgstr "管理员密码"
+
+msgctxt "#30011"
+msgid "HTTP port of the AList web UI and WebDAV endpoint. The service restarts when changed."
+msgstr "AList 网页界面与 WebDAV 使用的 HTTP 端口。修改后服务自动重启。"
+
+msgctxt "#30012"
+msgid "Password for the built-in admin user. Applied on the next service start; leave empty to keep the password managed inside AList."
+msgstr "内置 admin 用户的密码。下次服务启动时生效；留空则沿用 AList 内部的密码。"
+
+msgctxt "#30020"
+msgid "Access"
+msgstr "访问"
+
+msgctxt "#30021"
+msgid "Web UI: http://<device-ip>:<web port>"
+msgstr "网页地址：http://<设备IP>:<网页端口>"
+
+msgctxt "#30022"
+msgid "Username: admin"
+msgstr "用户名：admin"
+
+msgctxt "#30023"
+msgid "Data folder: /storage/.kodi/userdata/addon_data/service.alist/data"
+msgstr "数据目录：/storage/.kodi/userdata/addon_data/service.alist/data"

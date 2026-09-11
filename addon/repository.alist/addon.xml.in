@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<!--
+  SPDX-License-Identifier: GPL-2.0-only
+  Copyright (C) 2026-present AlistGo (https://github.com/AlistGo)
+
+  Layout follows chadparry/kodi-repository.chad.parry.org.
+  Placeholders are rendered by scripts/build-repository.sh.
+-->
+<addon id="repository.alist.@ARCH@"
+       name="AList Repository (@ARCH@)"
+       version="1.0.0"
+       provider-name="AlistGo">
+  <requires>
+    <import addon="xbmc.addon" version="19.0.0"/>
+  </requires>
+  <extension point="xbmc.addon.repository" name="AList Repository (@ARCH@)">
+    <dir>
+      <info compressed="true">@BASE_URL@/@ARCH@/addons.xml.gz</info>
+      <checksum>@BASE_URL@/@ARCH@/addons.xml.gz.md5</checksum>
+      <datadir zip="true">@BASE_URL@/@ARCH@</datadir>
+    </dir>
+  </extension>
+  <extension point="xbmc.addon.metadata">
+    <summary lang="en_GB">AList add-on repository for CoreELEC/LibreELEC (@ARCH@)</summary>
+    <summary lang="zh_CN">AList CoreELEC/LibreELEC 插件仓库（@ARCH@）</summary>
+    <description lang="en_GB">Delivers the AList service add-on built for the @ARCH@ architecture and keeps it updated automatically when a new AList version is released.</description>
+    <description lang="zh_CN">提供面向 @ARCH@ 架构的 AList 服务插件，并在 AList 发布新版本后自动更新。</description>
+    <platform>all</platform>
+    <license>GPL-2.0-only</license>
+    <source>https://github.com/AlistGo/Alist-CoreELEC</source>
+    <assets>
+      <icon>resources/icon.png</icon>
+    </assets>
+  </extension>
+</addon>

@@ -1,0 +1,1 @@
+Packaged from the official AList release. Upstream changes: https://github.com/AlistGo/alist/releases
