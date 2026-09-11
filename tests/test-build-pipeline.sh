@@ -78,6 +78,14 @@ for arch in arm aarch64 x86_64; do
   xmllint --xpath '/settings/setting[@id="info_url"]' "$defaults" >/dev/null 2>&1 && fail "action settings leaked into settings-default"
 done
 
+# A relative output directory must work from any working directory.
+(
+  cd "$tmp"
+  ALIST_ARCHIVE="$tmp/alist-stub.tar.gz" ALIST_SHA256="$sha256" \
+    "$repo_root/scripts/build-addon.sh" 9.9.9 arm rel-dist >/dev/null
+)
+[[ -f "$tmp/rel-dist/arm/service.alist-9.9.9.zip" ]] || fail "relative output directory not honoured"
+
 # Repository site.
 "$repo_root/scripts/build-repository.sh" "$tmp/dist" "$tmp/site" "https://example.test/repo" >/dev/null
 for arch in arm aarch64 x86_64; do

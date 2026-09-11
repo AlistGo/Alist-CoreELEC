@@ -46,6 +46,9 @@ fi
 
 script_dir="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 repo_root="$(cd "${script_dir}/.." && pwd)"
+# Packing changes directory, so the output path must be absolute.
+mkdir -p "$output_dir"
+output_dir="$(cd "$output_dir" && pwd)"
 addon_id="service.alist"
 addon_src="${repo_root}/addon/${addon_id}"
 
